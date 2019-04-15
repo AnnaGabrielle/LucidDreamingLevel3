@@ -17,6 +17,8 @@ public class AG_Player : MonoBehaviour {
 	[SerializeField] float ag_yRangeMax = 0.51f;
 	[SerializeField] float ag_yRangeMin= -0.41f;
 
+	[SerializeField] GameObject ag_bullets;
+
 	bool ag_ControlEnabled = true;
 
 	float ag_xThrow, ag_yThrow;
@@ -24,16 +26,25 @@ public class AG_Player : MonoBehaviour {
 	string ag_Xside = "Horizontal";
 	string ag_Yside="Vertical";
 	// Use this for initialization
-	
 	// Update is called once per frame
 	void Update () {
 		if(ag_ControlEnabled){
+			Ag_Shoot();
 			Ag_Movement();
 			Ag_Rotation();
 		}
 	
 	}
 
+	private void Ag_Shoot(){
+		if(CrossPlatformInputManager.GetButton("Fire")){
+			ag_bullets.SetActive(true);
+		}
+		else{
+			ag_bullets.SetActive(false);
+		}
+
+	}
 	private void Ag_Movement(){
 		ag_xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 		ag_yThrow = CrossPlatformInputManager.GetAxis("Vertical");
