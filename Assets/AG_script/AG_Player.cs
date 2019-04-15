@@ -38,13 +38,19 @@ public class AG_Player : MonoBehaviour {
 
 	private void Ag_Shoot(){
 		if(CrossPlatformInputManager.GetButton("Fire")){
-			ag_bullets.SetActive(true);
+			Ag_setActiveBullet(true);
 		}
 		else{
-			ag_bullets.SetActive(false);
+			Ag_setActiveBullet(false);
 		}
 
 	}
+
+	void Ag_setActiveBullet(bool isActive){
+		var emmissionModule = ag_bullets.GetComponent<ParticleSystem>().emission;
+		emmissionModule.enabled = isActive;
+	}
+	
 	private void Ag_Movement(){
 		ag_xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 		ag_yThrow = CrossPlatformInputManager.GetAxis("Vertical");

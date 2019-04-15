@@ -8,7 +8,7 @@ public class AG_Enemy : MonoBehaviour {
 	[SerializeField] int ag_scorePerHit = 10;
 	//AG_ScoreBoard ag_ScoreBoard;
 
-	[SerializeField] int ag_maxHit = 1;
+	[SerializeField] int ag_maxHit = 2;
 
 	void Start(){
 		//ag_ScoreBoard = FindObjectOfType<AG_ScoreBoard>();
