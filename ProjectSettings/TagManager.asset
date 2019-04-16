@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - AG_score
+  - ag_Enemy
+  - AG_Level
   layers:
   - Default
   - TransparentFX

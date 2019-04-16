@@ -18,6 +18,8 @@ public class AG_Player : MonoBehaviour {
 	[SerializeField] float ag_yRangeMin= -0.41f;
 
 	[SerializeField] GameObject ag_bullets;
+	[SerializeField] AudioClip ag_bulletSound;
+	AudioSource ag_bulletSoundComponent ;
 
 	bool ag_ControlEnabled = true;
 
@@ -27,6 +29,10 @@ public class AG_Player : MonoBehaviour {
 	string ag_Yside="Vertical";
 	// Use this for initialization
 	// Update is called once per frame
+
+	void Start(){
+		ag_bulletSoundComponent = ag_bullets.GetComponent<AudioSource>();
+	}
 	void Update () {
 		if(ag_ControlEnabled){
 			Ag_Shoot();
@@ -50,6 +56,7 @@ public class AG_Player : MonoBehaviour {
 		var emmissionModule = ag_bullets.GetComponent<ParticleSystem>().emission;
 		emmissionModule.enabled = isActive;
 	}
+
 	
 	private void Ag_Movement(){
 		ag_xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
